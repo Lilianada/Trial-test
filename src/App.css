@@ -1,38 +1,136 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+/*------------ [_Root] bde0feff-------FFC368----*/
+:root {
+
+  /* Colors */
+  --white-color: #FFFEF9;
+  --black-color: #141011;
+  --button-color: #212121;
+  --hover-color: #2f3032;
+  --light-grey-color: #E2E4E4;
+  --grey-color: #A6A6A6;
+  --purple-color: #4F46E5;
+
+
+  /* FontStyle*/
+  --fontOne: 'Poppins', sans-serif;
+
+  /* Font Sizes */
+  --font-fourtyTwo: 2rem;
+  --font-twentyFour: 1.2rem;
+  --font-sixteen: .9.5rem;
+  --font-fourteen: .88rem;
+  --font-twelve: .75rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (min-width:900px) {
+  :root {
+      --font-fourtyTwo: 2.625rem;
+      --font-twentyFour: 1.4rem;
+      --font-sixteen: 1.1rem;
+      --font-fourteen: .88rem;
+      --font-twelve: .75rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/*------------ [_Reset_Styles] -----------*/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-.App-link {
-  color: #61dafb;
+html {
+  scroll-behavior: smooth;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/*========================================*/
+/*--------------- [_Utility] -------------*/
+/*========================================*/
+body {
+  max-width: 1440px;
+  height: 100vh;
+  background-color: var(--white-color);
+  font-family: var(--fontOne);
+  color: var(--black-color);
+  letter-spacing: 1px;
 }
+
+p, h1, h2, h3,
+h4, h5, h6{
+  padding: 0;
+  margin: 0;
+}
+
+h2, h3,
+h4, h5, h6 {
+  color: var(--head-pri-color);
+  font-family: var(--fontOne);
+}
+
+p {
+  font-size: var(--font-sixteen);
+  line-height: 1.5rem;
+  color: var(--text-pri-color);
+}
+
+h1 {
+  font-size: var(--font-fourtyTwo);
+  font-family: var(--fontOne);
+  line-height: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: var(--font-twentyFour);
+  line-height: 1.5rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: var(--font-sixteen);
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: var(--font-sixteen);
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: var(--font-twelve);
+  font-weight: 400;
+}
+
+h6 {
+  font-size: var(--font-eleven);
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-family: var(--fontOne);
+  font-weight: 600;
+  font-size: var(--font-fourteen);
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  border: none;
+  max-width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+
