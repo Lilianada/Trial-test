@@ -1,5 +1,5 @@
+import React from 'react'
 import styled from "styled-components";
-import {devices} from './MediaQueries';
 
 const HeaderWrapper = styled.div`
     margin-bottom: 1rem;
@@ -9,7 +9,7 @@ const Head = styled.h1`
     background: var(--purple-color);
     padding: 2rem;
 `
-const Text = styled.h2`
+const Text = styled.h3`
     color: var(--black-color);
     padding: 1rem 2rem;
     width: 100%;

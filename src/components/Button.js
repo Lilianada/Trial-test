@@ -8,10 +8,11 @@ const Button = styled.button`
     font-size: 14px;
     font-weight: 500;
     font-family: var(--fontTwo);
-    margin-right: 1.5rem;
+    //margin-right: 1.5rem;
     padding: .9rem;
     cursor: pointer;
     width: 8rem;
+    height: 3rem;
 
     :hover{
         background: var(--hover-color); 
