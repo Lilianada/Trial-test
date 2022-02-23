@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-export default function Map(){
+export default function Map() {
     const defaultProps = {
       center: {
         lat: 9.0820,
@@ -23,7 +23,6 @@ export default function Map(){
       zoom: 11
     };
 
-    
     return (
         <Wrapper>
             <GoogleMapReact
@@ -39,11 +38,11 @@ export default function Map(){
             </GoogleMapReact>
         </Wrapper>
     );
-  }
+}
 
-
+//AIzaSyDQ3HauVuYgIJnzYH_vUq5J5xDT4WEOHFo
   
-    // return(<Autocomplete
-        //     apiKey={'AIzaSyCXeKPM_fnbfUJ1P6YTkP9hIakolhrKNv8'}
-        //     onPlaceSelected={(place) => console.log(place)}
-    // />)
+// return(<Autocomplete
+    //     apiKey={'AIzaSyCXeKPM_fnbfUJ1P6YTkP9hIakolhrKNv8'}
+    //     onPlaceSelected={(place) => console.log(place)}
+// />)

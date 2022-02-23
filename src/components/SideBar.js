@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import Button from "./Button"
 const Bar = styled.div`
@@ -59,31 +59,48 @@ const TextBox = styled.div`
     border-radius: 10px;
 `
 export default function SideBar () {
-
-    //Fetch API
-    const [fetchData, setFetchData] = useState([]);
-
-    useEffect(() => {
-        fetch(url)
-        //method('https://mock-api.dev.lalamove.com/route')
-        .then(response => response.json())
-        .then(data => setFetchData (data))
-        .catch(err => console.error("Error:", err))
-    }, [])
-
-    const handleSubmit = (e) =>{
+    
+    //Post Request
+    const [postData, setPostData] = useState();
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const data = fetchData;
-        if (Input === ''){
-            
-        }
+        const result = await fetch(url, {
+            method: 'post',
+            data: {
+              origin: inputValue,
+              destination: inputValueTwo,
+            }
+        })
+        .then(response => response.json())
+        .then(data =>  data)
+        .catch(err => (err))
+        if (result !== undefined) {
+            setPostData("In progress...")
+            fetchReq(result.token) 
+        } else{setPostData(result)}
     };
+    
+    //Fetch API
+    //const [fetchData, setFetchData] = useState([]);
+    const url = "https://mock-api.dev.lalamove.com/route/"
 
+    const fetchReq = async (id) => {
+        const result = await fetch(url + id)
+        .then(response => response.json())
+        .then(data => (data))
+        .catch(err => (err))
+        console.log(result)
+        if (result !== undefined) {
+            if (result.status !== undefined){
+                setPostData(result.error)
+            } else {setPostData("Location Gotten")}
+        } else {setPostData (result.toString())}
+    }
+
+    
+    //Handling the forms
     const [inputValue, setInputValue] = useState("")
     const [inputValueTwo, setInputValueTwo] = useState("")
-    const url = "https://mock-api.dev.lalamove.com/route/9d3503e0-7236-4e47-a62f-8b01b5646c16"
-
-    //Handling the forms
     const handleUserInput = (e) => {
         setInputValue(e.target.value);
     };
@@ -132,12 +149,13 @@ export default function SideBar () {
                 <Button 
                     type="submit"
                     value={'submit'}
+                    onClick={handleSubmit}
                 >Submit</Button>
                 <Button onClick={resetInputField}>Reset</Button>
             </Buttons>
             
             <TextBox>
-                {JSON.stringify(fetchData, null, 1)}
+                {postData}
             </TextBox>
         </Bar>
     )
