@@ -115,11 +115,12 @@ h6 {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
   color: inherit;
   font-family: var(--fontOne);
-  font-weight: 600;
-  font-size: var(--font-fourteen);
+  font-weight: 400;
+  font-size: var(--font-fourteen); 
+  cursor: pointer;
 }
 
 ul li {

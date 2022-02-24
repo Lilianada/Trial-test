@@ -19,8 +19,14 @@ const Text = styled.h3`
 export default function Header () {
     return(
         <HeaderWrapper>
-            <Head>Welcome to Tracker Trial!</Head>
-            <Text>To be begin, please input your current location in the first input box and your drop off location in the next</Text>
+            <Head>Welcome to Scrumanac!</Head>
+            <Text>
+                Hello User,
+            </Text>
+            <Text>
+                Scrumanac is a web application that allow users to submit addresses of their pick-up location and drop-off location.
+                <br/>
+                To begin, please input your current location in the first input box and your drop-off location in the next.</Text>
         </HeaderWrapper>
     )
 }

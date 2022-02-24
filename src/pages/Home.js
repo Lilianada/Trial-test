@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 import Grid from "../components/GridWrapper";
 import Header from "../components/Header";
 

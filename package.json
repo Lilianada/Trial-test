@@ -27,7 +27,7 @@
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-},
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.23",
+    "netlify-cli": "^9.8.0",
     "prettier": "2.5.1"
   }
 }

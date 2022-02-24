@@ -1,3 +1,17 @@
+# Trial Test
+
+Instructions on creating a production build.​
+
+### `npm run build`
+
+This creates a build directory with a production build of your app.`
+Inside the build/static directory will be your JavaScript and CSS files. 
+Each filename inside of build/static will contain a unique hash of the file contents. 
+This hash in the file name enables long term caching techniques.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

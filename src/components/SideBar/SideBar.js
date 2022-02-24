@@ -1,69 +1,21 @@
-import React, { useState } from "react"
-import styled from "styled-components"
-import Button from "./Button"
-const Bar = styled.div`
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    //align-items: ;
-    justify-content: flex-start;
-`
+import React, { useState } from "react";
+import Button from "../Button.styles";
+import { Bar, Head, Form, Input, InputForms, Buttons, TextBox, AutoWrapper } from "./SideBar.styles";
+import Autocomplete from "react-google-autocomplete";
 
-const Head = styled.h3`
-    margin-bottom: .75rem;
-`
-const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-`
-
-const InputForms = styled.div`
-    padding: .75rem 2rem;
-`
-const Input= styled.input`
-    position: relative;
-    display: inline-flex;
-    padding: .75rem;
-    width: 17rem;
-    border-radius: 10px;
-    transition: .4s ease-in-out;
-    outline: none;
-    border: 1px solid var(--grey-color);
-    font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 1rem;
-
-    ::placeholder{
-        color: #0000;
-
-    }
-
-    :focus{
-        border-color: blue;
-    }
-
-`
-const Buttons = styled.div`
-    display: flex;
-    width: 17rem;
-    justify-content: space-between;
-    margin: 1rem 2rem;
-`
-const TextBox = styled.div`
-    width: 300px;
-    margin: 2rem;
-    padding: 1.5rem;
-    font-size: 18px;
-    border: 1px solid var(--grey-color);
-    border-radius: 10px;
-`
 export default function SideBar () {
     
     //Post Request
     const [postData, setPostData] = useState();
     const handleSubmit = async (e) => {
         e.preventDefault();
+        handle()
+    };
+
+    const handle = async () => {
+        if (inputValue  === "" || inputValueTwo === ""){
+            return alert("Invalid input! Please input your locations.");
+        }
         const result = await fetch(url, {
             method: 'post',
             data: {
@@ -78,10 +30,9 @@ export default function SideBar () {
             setPostData("In progress...")
             fetchReq(result.token) 
         } else{setPostData(result)}
-    };
+    }
     
     //Fetch API
-    //const [fetchData, setFetchData] = useState([]);
     const url = "https://mock-api.dev.lalamove.com/route/"
 
     const fetchReq = async (id) => {
@@ -93,7 +44,13 @@ export default function SideBar () {
         if (result !== undefined) {
             if (result.status !== undefined){
                 setPostData(result.error)
-            } else {setPostData("Location Gotten")}
+                if (result.error !== undefined){
+                    setPostData(result.error)
+                } else if (result.status === "success") {
+                   const str = JSON.stringify(result.path)
+                    setPostData(str)
+                }else {handle()}
+            } else {setPostData("Please try again!")}
         } else {setPostData (result.toString())}
     }
 
@@ -114,6 +71,7 @@ export default function SideBar () {
         setInputValueTwo("");
     };
     
+    
 
     return(
         <Bar>
@@ -127,7 +85,6 @@ export default function SideBar () {
                         label="Location"
                         placeholder="Location"
                         onChange={handleUserInput}
-                        required
                     />
                 </InputForms>
 
@@ -140,7 +97,6 @@ export default function SideBar () {
                         label="Location"
                         placeholder="Location"
                         onChange={handleUserInputTwo}
-                        required
                     />
                 </InputForms>
             </Form>
@@ -157,6 +113,15 @@ export default function SideBar () {
             <TextBox>
                 {postData}
             </TextBox>
+
+            <AutoWrapper>
+                <Head>Input Value</Head>
+                <Autocomplete
+                    apiKey={'AIzaSyCXeKPM_fnbfUJ1P6YTkP9hIakolhrKNv8'}
+                    onPlaceSelected={(place) => console.log(place)}
+                    style={{width: "300px"}}
+                />
+            </AutoWrapper>
         </Bar>
     )
 }
