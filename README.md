@@ -9,7 +9,7 @@ Inside the build/static directory will be your JavaScript and CSS files.
 Each filename inside of build/static will contain a unique hash of the file contents. 
 This hash in the file name enables long term caching techniques.
 
-
+Live site: https://trialtest.netlify.app/
 
 
 # Getting Started with Create React App
