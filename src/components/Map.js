@@ -33,7 +33,7 @@ export default function Map() {
         <Wrapper>
             
             <GoogleMapReact
-                bootstrapURLKeys={{ key: "AIzaSyCXeKPM_fnbfUJ1P6YTkP9hIakolhrKNv8" }}
+                bootstrapURLKeys={{ key: "INPUT-YOUR-KEY-HERE" }}
                 defaultCenter={center}
                 defaultZoom={zoom}
                 yesIWantToUseGoogleMapApiInternals
@@ -50,5 +50,4 @@ export default function Map() {
     );
 }
 
-//AIzaSyCXeKPM_fnbfUJ1P6YTkP9hIakolhrKNv8 INPUT-YOUR-KEY-HERE
   
