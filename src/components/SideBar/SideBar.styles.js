@@ -14,13 +14,15 @@ export const Bar = styled.div`
     }
 `
 
-export const Head = styled.h3`
+export const Head = styled.p`
     margin-bottom: .75rem;
+    font-weight: 500;
 `
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    font-size: var(--font-sixteen);
 `
 
 export const InputForms = styled.div`
@@ -35,7 +37,7 @@ export const Input= styled.input`
     transition: .4s ease-in-out;
     outline: none;
     border: 1px solid var(--grey-color);
-    font-size: 14px;
+    font-size: var(--font-fourteen);
     font-weight: 400;
     margin-bottom: 1rem;
 
